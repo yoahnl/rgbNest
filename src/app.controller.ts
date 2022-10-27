@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body,Controller,Get,Post } from "@nestjs/common";
 import { AppService } from './app.service';
 import { MatrixControllerService } from './matrix-controller/matrix-controller.service';
 
@@ -30,5 +30,12 @@ export class AppController {
   getClear(): string {
     this.matrixController.clear();
     return 'clear';
+  }
+
+  @Post('drawText')
+  getDrawText(@Body() body): string {
+    console.log(`Created a new post with values of ${JSON.stringify(body)} 🚀`);
+    return `Created a new post with values of ${JSON.stringify(body)} 🚀`;
+
   }
 }
