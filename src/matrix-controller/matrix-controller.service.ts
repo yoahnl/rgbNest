@@ -66,6 +66,7 @@ export class MatrixControllerService {
 
   public drawText(text: string) {
     this.text.setText(text, 0, 0, this.tiny, ColorsScreen.white);
+    this.matrix.sync();
   }
 
   public clear() {
