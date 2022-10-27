@@ -34,6 +34,7 @@ export class AppController {
 
   @Post('drawText')
   getDrawText(@Body() body): string {
+    console.log(body);
     console.log(`Created a new post with values of ${JSON.stringify(body)} 🚀`);
     return `Created a new post with values of ${JSON.stringify(body)} 🚀`;
 

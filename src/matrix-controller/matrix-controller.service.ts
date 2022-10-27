@@ -1,16 +1,21 @@
 import { Injectable, Scope } from '@nestjs/common';
 import { matrixOptions, runtimeOptions } from './_config';
-import { LedMatrix } from 'rpi-led-matrix';
+import { FontInstance, LedMatrix } from 'rpi-led-matrix';
 import { DrawText } from './draw/drawText';
+import { ColorsScreen } from '../model/colors';
+import { FontEnum } from '../model/font';
 
 @Injectable({ scope: Scope.DEFAULT })
 export class MatrixControllerService {
   test = 0;
 
   private matrix!: any;
-  private drawText: DrawText;
+  private text: DrawText;
+  smallFont: FontInstance;
+  tiny: FontInstance;
+
   constructor() {
-    let test = true;
+    const test = true;
     if (test == true) {
       console.log('MatrixControllerService: IS_RGB is true');
       this.matrix = new LedMatrix(matrixOptions, runtimeOptions);
@@ -26,9 +31,10 @@ export class MatrixControllerService {
   private initDrawText() {
     console.log('MatrixControllerService initDrawText');
 
-    this.drawText = new DrawText(this.matrix);
+    this.text = new DrawText(this.matrix);
+    this.text.createFont(FontEnum.smallBold);
+    this.text.createFont(FontEnum.tiny);
   }
-
 
   public drawTest() {
     this.matrix
@@ -48,7 +54,7 @@ export class MatrixControllerService {
         this.matrix.width() / 4,
         this.matrix.height() / 4,
         this.matrix.width() / 2,
-        this.matrix.height() / 2
+        this.matrix.height() / 2,
       )
       // sets the active color to red
       .fgColor({ r: 255, g: 0, b: 0 })
@@ -56,6 +62,10 @@ export class MatrixControllerService {
       .drawLine(0, 0, this.matrix.width(), this.matrix.height())
       .drawLine(this.matrix.width() - 1, 0, 0, this.matrix.height() - 1)
       .sync();
+  }
+
+  public drawText(text: string) {
+    this.text.setText(text, 0, 0, this.tiny, ColorsScreen.white);
   }
 
   public clear() {
