@@ -59,6 +59,6 @@ export class MatrixControllerService {
   }
 
   public clear() {
-    this.matrix.clear();
+    this.matrix.clear().sync();
   }
 }
