@@ -15,7 +15,6 @@ export class MatrixControllerService {
       console.log('MatrixControllerService: IS_RGB is true');
       this.matrix = new LedMatrix(matrixOptions, runtimeOptions);
       this.initDrawText();
-      this.drawTest();
     } else {
       console.log('MatrixControllerService: IS_RGB is false');
       this.matrix = null;
@@ -57,5 +56,9 @@ export class MatrixControllerService {
       .drawLine(0, 0, this.matrix.width(), this.matrix.height())
       .drawLine(this.matrix.width() - 1, 0, 0, this.matrix.height() - 1)
       .sync();
+  }
+
+  public clear() {
+    this.matrix.clear();
   }
 }

@@ -19,4 +19,16 @@ export class AppController {
     this.matrixController.test += 1;
     return this.matrixController.test.toString();
   }
+
+  @Get('drawTest')
+  getDrawTest(): string {
+    this.matrixController.drawTest();
+    return 'drawTest';
+  }
+
+  @Get('clear')
+  getClear(): string {
+    this.matrixController.clear();
+    return 'clear';
+  }
 }
