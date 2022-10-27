@@ -32,8 +32,8 @@ export class MatrixControllerService {
     console.log('MatrixControllerService initDrawText');
 
     this.text = new DrawText(this.matrix);
-    this.text.createFont(FontEnum.smallBold);
-    this.text.createFont(FontEnum.tiny);
+    this.smallFont = this.text.createFont(FontEnum.smallBold);
+    this.tiny = this.text.createFont(FontEnum.tiny);
   }
 
   public drawTest() {
