@@ -10,7 +10,8 @@ export class MatrixControllerService {
   private matrix!: any;
   private drawText: DrawText;
   constructor() {
-    if (process.env.IS_RGB === 'true') {
+    let test = true;
+    if (test == true) {
       console.log('MatrixControllerService: IS_RGB is true');
       this.matrix = new LedMatrix(matrixOptions, runtimeOptions);
       this.initDrawText();
