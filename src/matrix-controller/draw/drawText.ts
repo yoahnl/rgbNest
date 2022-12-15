@@ -32,6 +32,7 @@ export class DrawText {
   }
 
   private checkTextSize(text: string): string[] {
+    console.log('text.length', text.length);
     return text.match(/.{1,13}/g);
   }
 }
