@@ -20,11 +20,11 @@ export class DrawText {
     console.log('textAr.length', textAr.length);
     if (textAr.length > 4) {
       this.matrix.drawText('Text too long', x, y);
-      throw new Error('Text is too long');
-    }
-    for (let i = 0; i < textAr.length; i++) {
-      this.matrix.drawText(textAr[i], x, y);
-      y += 7;
+    } else {
+      for (let i = 0; i < textAr.length; i++) {
+        this.matrix.drawText(textAr[i], x, y);
+        y += 7;
+      }
     }
   }
 
