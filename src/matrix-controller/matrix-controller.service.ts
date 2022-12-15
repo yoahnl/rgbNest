@@ -8,32 +8,20 @@ import { FontEnum } from '../model/font';
 @Injectable({ scope: Scope.DEFAULT })
 export class MatrixControllerService {
   test = 0;
-
-  private matrix!: any;
-  private text: DrawText;
   smallFont: FontInstance;
   tiny: FontInstance;
+  public drawImage;
+  private matrix!: any;
+  private text: DrawText;
 
   constructor() {
     const test = true;
     if (test == true) {
-      console.log('MatrixControllerService: IS_RGB is true');
       this.matrix = new LedMatrix(matrixOptions, runtimeOptions);
       this.initDrawText();
     } else {
-      console.log('MatrixControllerService: IS_RGB is false');
       this.matrix = null;
     }
-
-    console.log('MatrixControllerService constructor');
-  }
-
-  private initDrawText() {
-    console.log('MatrixControllerService initDrawText');
-
-    this.text = new DrawText(this.matrix);
-    this.smallFont = this.text.createFont(FontEnum.smallBold);
-    this.tiny = this.text.createFont(FontEnum.tiny);
   }
 
   public drawTest() {
@@ -71,5 +59,11 @@ export class MatrixControllerService {
 
   public clear() {
     this.matrix.clear().sync();
+  }
+
+  private initDrawText() {
+    this.text = new DrawText(this.matrix);
+    this.smallFont = this.text.createFont(FontEnum.smallBold);
+    this.tiny = this.text.createFont(FontEnum.tiny);
   }
 }

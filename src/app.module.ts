@@ -8,7 +8,4 @@ import { MatrixControllerService } from './matrix-controller/matrix-controller.s
   controllers: [AppController],
   providers: [AppService, MatrixControllerService],
 })
-export class AppModule {
-
-
-}
+export class AppModule {}
