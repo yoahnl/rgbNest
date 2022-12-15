@@ -16,7 +16,22 @@ export class DrawImage {
     private height: number,
   ) {}
 
-  private static removeWhiteInformationFromMetaData(metadata: number[]) {
+  async getImage() {
+    const image: Buffer = await resizeImg(
+      fs.readFileSync(this.completeImagePath),
+      {
+        width: this.width,
+        height: this.height,
+      },
+    );
+    const metadata: Metadata = png.decode(image);
+    this.imageBuf = new Uint8Array(
+      this.removeWhiteInformationFromMetaData(metadata.data),
+    );
+    return this.imageBuf;
+  }
+
+  private removeWhiteInformationFromMetaData(metadata: number[]) {
     let inew = 0;
     let iold = 0;
     let count = 0;
@@ -32,20 +47,5 @@ export class DrawImage {
       iold += 1;
     }
     return newMetaData;
-  }
-
-  async getImage() {
-    const image: Buffer = await resizeImg(
-      fs.readFileSync(this.completeImagePath),
-      {
-        width: this.width,
-        height: this.height,
-      },
-    );
-    const metadata: Metadata = png.decode(image);
-    this.imageBuf = new Uint8Array(
-      Dr.removeWhiteInformationFromMetaData(metadata.data),
-    );
-    return this.imageBuf;
   }
 }
