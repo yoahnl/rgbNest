@@ -1,5 +1,5 @@
 git pull
 clear
-npm run build
+sudo npm run build
 clear
-npm run start:prod
+sudo npm run start:prod
