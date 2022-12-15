@@ -22,7 +22,8 @@ export class DrawText {
       throw new Error('Text is too long');
     }
     for (let i = 0; i < textAr.length; i++) {
-      this.matrix.drawText(textAr[i], x, y + i * 10);
+      this.matrix.drawText(textAr[i], x, y);
+      y += 7;
     }
   }
 
