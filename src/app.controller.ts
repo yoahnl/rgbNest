@@ -7,7 +7,9 @@ export class AppController {
   constructor(
     private readonly appService: AppService,
     private matrixController: MatrixControllerService,
-  ) {}
+  ) {
+    this.matrixController.clear();
+  }
 
   @Get()
   getHello(): string {
