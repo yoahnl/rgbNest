@@ -15,15 +15,18 @@ export class DrawText {
     this.matrix.font(font);
     this.matrix.fgColor(color);
     this.matrix.clear();
-    this.matrix.drawText(text, x, y);
+    this.checkTextSize(text);
+    const textAr: string[] = this.checkTextSize(text);
+    for (let i = 0; i < textAr.length; i++) {
+      this.matrix.drawText(textAr[i], x, y + i * 10);
+    }
   }
 
   createFont(fontSize: FontEnum) {
     return new Font('font', `${process.cwd()}/fonts/${fontSize}`);
   }
 
-  private checkTextSize(text: string) {
-    // print text lenght
-    console.log(`text length: ${text.length}`);
+  private checkTextSize(text: string): string[] {
+    return text.match(/.{1,13}/g);
   }
 }
