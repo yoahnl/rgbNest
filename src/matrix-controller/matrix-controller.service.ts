@@ -4,6 +4,7 @@ import { FontInstance, LedMatrix } from 'rpi-led-matrix';
 import { DrawText } from './draw/drawText';
 import { ColorsScreen } from '../model/colors';
 import { FontEnum } from '../model/font';
+import { DrawImage } from './draw/drawImage';
 
 @Injectable({ scope: Scope.DEFAULT })
 export class MatrixControllerService {
@@ -59,6 +60,11 @@ export class MatrixControllerService {
 
   public clear() {
     this.matrix.clear().sync();
+  }
+
+  drawImageTest() {
+    this.drawImage = new DrawImage('logo.png', this.matrix, 32, 32);
+    this.drawImage.draw();
   }
 
   private initDrawText() {

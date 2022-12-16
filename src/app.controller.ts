@@ -39,4 +39,10 @@ export class AppController {
     this.matrixController.drawText(body.text);
     return `Created a new post with values of ${JSON.stringify(body)} 🚀`;
   }
+
+  @Post('drawImagetest')
+  getDrawImageTest(@Body() body): string {
+    this.matrixController.drawImageTest();
+    return `Created a new post with values of ${JSON.stringify(body)} 🚀`;
+  }
 }

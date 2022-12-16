@@ -17,7 +17,6 @@ export class DrawText {
     this.matrix.clear();
     this.checkTextSize(text);
     const textAr: string[] = this.checkTextSize(text);
-    console.log('textAr.length', textAr.length);
     if (textAr.length > 4) {
       this.matrix.drawText('Text too long', x, y);
     } else {
@@ -33,7 +32,6 @@ export class DrawText {
   }
 
   private checkTextSize(text: string): string[] {
-    console.log('text.length', text.length);
     return text.match(/.{1,13}/g);
   }
 }

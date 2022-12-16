@@ -7,7 +7,7 @@ import * as png from '@vivaxy/png';
 
 export class DrawImage {
   private imageBuf: Uint8Array = new Uint8Array(0);
-  private completeImagePath = `${process.cwd()}/${this.imagePath}`;
+  private completeImagePath = `${process.cwd()}/images/${this.imagePath}`;
 
   constructor(
     private imagePath: string,
