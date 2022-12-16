@@ -17,7 +17,9 @@ export class DrawImage {
   ) {}
 
   drawImage() {
-    console.log('drawImage');
+    this.getImage().then((image) => {
+      console.log('image', image);
+    });
   }
 
   private async getImage() {
