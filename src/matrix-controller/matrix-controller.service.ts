@@ -64,7 +64,7 @@ export class MatrixControllerService {
 
   drawImageTest() {
     this.drawImage = new DrawImage('logo.png', this.matrix, 32, 32);
-    this.drawImage.draw();
+    this.drawImage.drawImage();
   }
 
   private initDrawText() {

@@ -14,9 +14,15 @@ export class DrawImage {
     private matrix: LedMatrixInstance,
     private width: number,
     private height: number,
-  ) {}
+  ) {
+    this.getImage();
+  }
 
-  async getImage() {
+  public drawImage() {
+    this.matrix.drawBuffer(this.imageBuf, this.width, this.height);
+  }
+
+  private async getImage() {
     const image: Buffer = await resizeImg(
       fs.readFileSync(this.completeImagePath),
       {
