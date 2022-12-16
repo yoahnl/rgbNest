@@ -17,9 +17,7 @@ export class DrawImage {
   ) {}
 
   drawImage() {
-    this.getImage().then((image) => {
-      this.matrix.drawBuffer(image, 32, 32);
-    });
+    console.log('drawImage');
   }
 
   private async getImage() {
