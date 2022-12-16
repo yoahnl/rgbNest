@@ -19,7 +19,9 @@ export class DrawImage {
 
   drawImage() {
     this.getImage().then((image) => {
-      this.matrix.drawBuffer(image, this.width, this.height);
+      const test = this.matrix.drawBuffer(image, this.width, this.height);
+      console.log(test);
+      this.matrix.sync();
     });
   }
 
