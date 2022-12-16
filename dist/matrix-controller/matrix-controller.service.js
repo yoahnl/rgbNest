@@ -51,7 +51,7 @@ let MatrixControllerService = class MatrixControllerService {
         this.matrix.clear().sync();
     }
     drawImageTest() {
-        this.drawImage = new drawImage_1.DrawImage('pixel.png', this.matrix, 32, 32);
+        this.drawImage = new drawImage_1.DrawImage('logo.png', this.matrix, 32, 32);
         this.drawImage.drawImage();
     }
     initDrawText() {
