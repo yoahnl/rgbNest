@@ -14,12 +14,12 @@ export class DrawImage {
     private matrix: LedMatrixInstance,
     private width: number,
     private height: number,
-  ) {
-    this.getImage();
-  }
+  ) {}
 
-  public drawImage() {
-    this.matrix.drawBuffer(this.imageBuf, this.width, this.height);
+  drawImage() {
+    this.getImage().then((image) => {
+      this.matrix.drawBuffer(image, 32, 32);
+    });
   }
 
   private async getImage() {
