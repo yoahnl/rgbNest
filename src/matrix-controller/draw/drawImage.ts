@@ -1,9 +1,9 @@
+import * as fs from 'fs';
 import { Buffer } from 'buffer';
-import fs from 'fs';
+import * as png from '@vivaxy/png';
+import { resizeImg } from 'resize-image-buffer';
 import { LedMatrixInstance } from 'rpi-led-matrix';
 import Metadata from '@vivaxy/png/lib/helpers/metadata';
-import { resizeImg } from 'resize-image-buffer';
-import * as png from '@vivaxy/png';
 
 export class DrawImage {
   private imageBuf: Uint8Array = new Uint8Array(0);
