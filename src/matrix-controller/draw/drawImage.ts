@@ -1,9 +1,10 @@
 import * as fs from 'fs';
 import { Buffer } from 'buffer';
 import * as png from '@vivaxy/png';
-import { resizeImg } from 'resize-image-buffer';
 import { LedMatrixInstance } from 'rpi-led-matrix';
 import Metadata from '@vivaxy/png/lib/helpers/metadata';
+
+const resizeImg = require('resize-image-buffer');
 
 export class DrawImage {
   private imageBuf: Uint8Array = new Uint8Array(0);
